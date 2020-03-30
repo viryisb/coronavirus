@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 
 
-
 function App() {
   return (
     <div className="App">
@@ -23,7 +22,7 @@ function App() {
   <tbody>
     <tr>
       
-      <td>Mark</td>
+      <td>{local.first_name</td>
       <td>65</td>
       <td>f</td>
     </tr>
