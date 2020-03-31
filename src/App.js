@@ -36,7 +36,6 @@ render(){
         <p> mapa del coronavirus
         </p>
       </header>
-      <body>
       <table class="table table-sm">
   <thead>
     <tr>
@@ -51,7 +50,6 @@ render(){
   </tbody>
 </table>
 
-      </body>
     </div>
   );
 }}
