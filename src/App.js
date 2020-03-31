@@ -7,29 +7,30 @@ class App extends React.Component{
   constructor(props){
     super()
     this.state={
-     infected: props.local
+     infectedPeople: props.local
     }
   }
- createTable(){
+  createTable=()=>{
     let infectedTable=[];
-    this.state.infected.forEach(()=>{
+    this.state.infectedPeople.forEach((infected)=>{
       let name= infected.first_name;
       let lastName=infected.last_name;
-      let age=infected.age;
-
-      infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
-        <td>{name + lastName}</td>
+      let age=infected.age; 
+      
+       infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
+        <td>{name + "" + lastName}</td>
       <td>{age}</td>
       <td>{(infected.female)? <span>"F"</span>:<span>"M</span>}</td>
       </tr>)
     }
   );
-  return infectedTable;
+  return infectedTable; 
 }
 
 
 render(){
   return (
+    
     <div className="App">
       <header className="App-header">
         <p> mapa del coronavirus
