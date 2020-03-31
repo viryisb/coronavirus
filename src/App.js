@@ -18,9 +18,9 @@ class App extends React.Component{
       let age=infected.age; 
       
        infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
-        <td>{name + "" + lastName}</td>
+        <td>{name}  {lastName}</td>
       <td>{age}</td>
-      <td>{(infected.female)? <span>"F"</span>:<span>"M</span>}</td>
+      <td>{(infected.female)? <span>F</span>:<span>M</span>}</td>
       </tr>)
     }
   );
