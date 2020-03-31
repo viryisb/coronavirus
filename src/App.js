@@ -2,7 +2,33 @@ import React from 'react';
 import './App.css';
 
 
-function App() {
+
+class App extends React.Component{
+  constructor(props){
+    super()
+    this.state={
+     infected: props.local
+    }
+  }
+ createTable(){
+    let infectedTable=[];
+    this.state.infected.forEach(()=>{
+      let name= infected.first_name;
+      let lastName=infected.last_name;
+      let age=infected.age;
+
+      infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
+        <td>{name + lastName}</td>
+      <td>{age}</td>
+      <td>{(infected.female)? <span>"F"</span>:<span>"M</span>}</td>
+      </tr>)
+    }
+  );
+  return infectedTable;
+}
+
+
+render(){
   return (
     <div className="App">
       <header className="App-header">
@@ -20,29 +46,13 @@ function App() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      
-      <td>{local.first_name</td>
-      <td>65</td>
-      <td>f</td>
-    </tr>
-    <tr>
-      
-      <td>Rodolfo</td>
-      <td>87</td>
-      <td>m</td>
-    </tr>
-    <tr>
-    <td>Ciliberto</td>
-      <td>30</td>
-      <td>m</td>
-    </tr>
+   {this.createTable()}
   </tbody>
 </table>
 
       </body>
     </div>
   );
-}
+}}
 
 export default App;
