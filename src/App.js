@@ -14,7 +14,7 @@ class App extends React.Component{
   async componentWillMount(){
     const response = await axios.get("http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/infected");
     console.log(response);
-    this.setState ((state,props)=>{return {infected:response.data}})
+    this.setState ((state,props)=>{return {infectedPeople:response.data}})
 
 
   }
