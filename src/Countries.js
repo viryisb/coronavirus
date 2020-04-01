@@ -9,15 +9,14 @@ class Countries extends React.Component{
            
          }
     }
-    async componentWillMount(){
+    async componentDidMount(){
         const response = await axios.get("http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries");
-        console.log(response);
-        this.setState ((state,props)=>{return {countries:response}}) 
-              
-        
-            }
+        this.setState ((state,props)=>{return {countries:response.data}})
+    
+    
+      }
 render(){
-    return("acá el return")
+    return("..")
 }
 }
 

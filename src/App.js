@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import './App.css';
 const axios = require('axios').default;
 
@@ -20,24 +20,7 @@ class App extends React.Component{
 
   }
 
- /*  createTable=()=>{
-    let infectedTable=[];
-    this.state.infectedPeople.forEach((infected)=>{
-      let name= infected.first_name;
-      let lastName=infected.last_name;
-      let age=parseInt(infected.age)
-      
-       infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
-        <td>{name}  {lastName}</td>
-      <td>{age }</td>
-      <td>{ (infected.female)? <span>F</span>:<span>M</span>}</td>
-      </tr>)
-    }
-  );
-  return infectedTable; 
-} */
-
-//con map 
+ 
 createTable = () => this.state.infectedPeople.map(infected =>
   (<tr className={(infected.live) ? "live" : "dead"}>
     <td>{infected.name}  {infected.last_name}</td>
@@ -48,13 +31,13 @@ createTable = () => this.state.infectedPeople.map(infected =>
 downloadInfected(){
 let csv= "Name, Age, Gender, Live\n"
 this.state.infectedPeople.forEach((infected)=>{
-let name= infected.first_name;
-      let lastName=infected.last_name;
-      let gender= infected.female? "male" : "female"
-      let age=parseInt(infected.age);
-      let live=!! infected.live;
-      csv += name+ '' + lastName + ',' + age + ',' + gender + ',' + live +';';
-    })
+  let name= infected.first_name;
+  let lastName=infected.last_name;
+  let gender= infected.female? "male" : "female"
+  let age=parseInt(infected.age);
+  let live=infected.live ? "live" : "deceased";
+  csv += `${name} ${lastName},${age},${gender},${live}\n`;
+    },)
 
 
 const element = document.createElement("a");
@@ -98,3 +81,4 @@ return (
 
 
 export default App;
+ 
