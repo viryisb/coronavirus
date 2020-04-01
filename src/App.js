@@ -11,20 +11,21 @@ class App extends React.Component{
   
     }
   }
-  async componentWillMount(){
+
+
+  async componentDidMount(){
     const response = await axios.get("http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/infected");
-    console.log(response);
     this.setState ((state,props)=>{return {infectedPeople:response.data}})
 
 
   }
 
-  createTable=()=>{
+ /*  createTable=()=>{
     let infectedTable=[];
     this.state.infectedPeople.forEach((infected)=>{
       let name= infected.first_name;
       let lastName=infected.last_name;
-      let age=(infected.age>365)? parseInt(infected.age /365) : infected.age + " days"
+      let age=parseInt(infected.age)
       
        infectedTable.push(<tr className={(infected.live)? "live":"dead"}>
         <td>{name}  {lastName}</td>
@@ -34,8 +35,15 @@ class App extends React.Component{
     }
   );
   return infectedTable; 
-}
+} */
 
+//con map 
+createTable = () => this.state.infectedPeople.map(infected =>
+  (<tr className={(infected.live) ? "live" : "dead"}>
+    <td>{infected.name}  {infected.last_name}</td>
+    <td>{infected.age}</td>
+    <td>{(infected.female) ? <span>F</span> : <span>M</span>}</td>
+  </tr>))
 
 downloadInfected(){
 let csv= "Name, Age, Gender, Live\n"
@@ -43,7 +51,7 @@ this.state.infectedPeople.forEach((infected)=>{
 let name= infected.first_name;
       let lastName=infected.last_name;
       let gender= infected.female? "male" : "female"
-      let age=(infected.age>365)? parseInt(infected.age /365) : infected.age + " days";
+      let age=parseInt(infected.age);
       let live=!! infected.live;
       csv += name+ '' + lastName + ',' + age + ',' + gender + ',' + live +';';
     })
@@ -72,6 +80,7 @@ return (
   <thead>
     <tr>
      
+
       <th scope="col">Name</th>
       <th scope="col">Age</th>
       <th scope="col">Gender</th>
@@ -82,8 +91,10 @@ return (
   </tbody>
 </table>
 
+
     </div>
   );
 }}
+
 
 export default App;
