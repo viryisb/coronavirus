@@ -1,4 +1,4 @@
-/* import React from 'react';
+ /* import React from 'react';
 const axios = require('axios').default;
 
 
@@ -17,7 +17,11 @@ class Infected extends React.Component{
 
   }
   render(){
-    return "..."()};
-
-  export default Infected */
+    return (<div>
+    <infectedTable infectedPeople={this.state.infectedPeople}/>
+    <infectedButton />
+    <infectedChart/>
+    </div>);
+    }
+  export default Infected  */
 //Este es el componente padre que le pega a la api de infected y le pasa en el render por props a infectedTable, infectedButton y InfectedChart

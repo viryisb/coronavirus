@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import './App.css';
 const axios = require('axios').default;
 
@@ -27,6 +27,7 @@ createTable = () => this.state.infectedPeople.map(infected =>
     <td>{infected.age}</td>
     <td>{(infected.female) ? <span>F</span> : <span>M</span>}</td>
   </tr>))
+  
 
 downloadInfected(){
 let csv= "Name, Age, Gender, Live\n"
@@ -81,4 +82,5 @@ return (
 
 
 export default App;
+ 
  
